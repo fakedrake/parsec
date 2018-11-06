@@ -1,4 +1,4 @@
-name:		parsec
+name:		fakedrake-parsec
 version:	3.1.13
 cabal-version: >= 1.8
 license:	BSD3
