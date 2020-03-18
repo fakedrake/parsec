@@ -69,6 +69,7 @@ module Text.Parsec.Prim
     ) where
 
 
+import Control.Monad.Fail
 import qualified Data.ByteString.Lazy.Char8 as CL
 import qualified Data.ByteString.Char8 as C
 
