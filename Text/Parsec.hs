@@ -108,6 +108,7 @@ module Text.Parsec
     , parsecMap
     , parserReturn
     , parserBind
+    , parserFail
     , parserZero
     , parserPlus
     ) where
