@@ -31,7 +31,6 @@ module Text.Parsec.Prim
     , parserReturn
     , parserBind
     , mergeErrorReply
-    , parserFail
     , parserZero
     , parserPlus
     , (<?>)
@@ -200,7 +199,6 @@ instance Applicative.Alternative (ParsecT s u m) where
 instance Monad (ParsecT s u m) where
     return x = parserReturn x
     p >>= f  = parserBind p f
-    fail msg = parserFail msg
 
 instance (MonadIO m) => MonadIO (ParsecT s u m) where
     liftIO = lift . liftIO
@@ -278,11 +276,6 @@ mergeErrorReply err1 reply -- XXX where to put it?
     = case reply of
         Ok x state err2 -> Ok x state (mergeError err1 err2)
         Error err2      -> Error (mergeError err1 err2)
-
-parserFail :: String -> ParsecT s u m a
-parserFail msg
-    = ParsecT $ \s _ _ _ eerr ->
-      eerr $ newErrorMessage (Message msg) (statePos s)
 
 instance MonadPlus (ParsecT s u m) where
     mzero = parserZero

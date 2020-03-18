@@ -108,13 +108,12 @@ module Text.Parsec
     , parsecMap
     , parserReturn
     , parserBind
-    , parserFail
     , parserZero
     , parserPlus
     ) where
 
-import Text.Parsec.Pos
-import Text.Parsec.Error
-import Text.Parsec.Prim
-import Text.Parsec.Char
-import Text.Parsec.Combinator
+import           Text.Parsec.Char
+import           Text.Parsec.Combinator
+import           Text.Parsec.Error
+import           Text.Parsec.Pos
+import           Text.Parsec.Prim
